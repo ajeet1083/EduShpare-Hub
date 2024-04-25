@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'StudyPortal.urls'
+ROOT_URLCONF = 'EduShpare-Hub.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'StudyPortal.wsgi.application'
+WSGI_APPLICATION = 'EduShpare-Hub.wsgi.application'
 
 
 # Database
