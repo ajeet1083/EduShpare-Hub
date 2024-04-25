@@ -1,0 +1,25 @@
+{% extends 'dashboard/base.html' %} 
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-11 compiler_cdn" id="compiler">
+                <div id="compiler_element">
+                    <!-- <iframe src="https://www.onlinegdb.com/" id="compiler_frame" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen ></iframe> -->
+                    <div data-pym-src="https://www.jdoodle.com/embed/v1/d2c249de95804cec"></div>
+                    <script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"> </script>
+                </div>
+            </div>
+        </div>
+    </div></div>
+
+   
+    {% block custom_js %}
+    
+    {% endblock custom_js %}
+
+
+{% endblock content %}

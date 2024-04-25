@@ -1,0 +1,49 @@
+{% extends 'dashboard/base.html' %} 
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container z-1">
+   <div class="row">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4"><b>Create Notes:</b></legend>
+        </fieldset>
+        {{ form.media }}
+        {{ form.as_p }}
+        <div class="form-group">
+            <button href="" class="btn btn-outline-info" type="submit">
+                Create
+            </button>
+        </div>
+    </form>
+   </div>
+    <div class="border-bottom bg-dark"></div>
+<br><br>
+</div>
+<div class="container z-0">
+<legend class="border-bottom mb-4"><b>Your Created Notes:</b></legend>
+
+    <div class="row ">
+        {% for note in notes %}
+        <div class="col-md-3 my-3">
+            <a href="{% url 'note_detail' note.id %}">
+                <div class="card">
+                    <div class="card-header">{{note.title}}</div>
+                    <div class="card-body overflow-hidden">{{note.description|slice:"0:100"}}</div>
+                    <div class="card-footer mt-auto "><a href="{% url 'notes_delete' note.id %}">
+                        <i class="fa fa-trash fa-2x"></i></a>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        {% endfor %}
+
+        <br><br>
+
+    </div>
+</div>
+
+{% endblock content %}

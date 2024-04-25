@@ -1,0 +1,38 @@
+{% extends 'dashboard/base.html' %} 
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-1 align-content-center" style="background-color: rgb(213, 240, 241);">
+                <div class="list-group align-items-center mt-3">
+                    <div class="list-group-item mt-3"><span class="link" onclick="select_compiler('python')"><img src="{% static 'icons/icons8-python-48.png' %}" alt="Python"></span></div>
+                    <div class="list-group-item mt-3"><span class="link" onclick="select_compiler('java')"><img src="{% static 'icons/icons8-java-48.png' %}" alt="Java"></span></div>
+                    <div class="list-group-item mt-3"><span class="link" onclick="select_compiler('c')"><img src="{% static 'icons/icons8-c-48.png' %}" alt="C"></span></div>
+                    <div class="list-group-item mt-3"><span class="link" onclick="select_compiler('c++')"><img src="{% static 'icons/icons8-c++-48.png' %}" alt="C++"></span></div>
+                   
+                </div>
+            </div>
+            <div class="col-11 compiler_cdn" id="compiler">
+                  <div id="compiler_element" width="500" height="500">
+                    
+                    <iframe src="https://www.jdoodle.com/embed/v1/19e78fadb13b991a" id="compiler_frame" width="100%" height="450" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen ></iframe>
+
+                  </div>
+            </div>
+        </div>
+    </div>
+
+   
+    {% block custom_js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"> </script>
+    <script src="{% static 'js/compiler_selector.js' %}"> </script>
+
+    {% endblock custom_js %}
+
+
+{% endblock content %}
+<script src="{% static 'js/compiler_selector.js' %}"> </script>

@@ -1,0 +1,75 @@
+{% extends 'dashboard/base.html' %} 
+{% load static %} 
+{% block custom_js_header %}
+<script>
+    function videodisp(ele){
+        var element = ele.getAttribute("data-custom-attribute");
+    
+        console.log(element); // Output: "my-custom-value"
+       // var display = document.getElementById('youtube_display');
+       // display.src = link;
+        
+
+
+        
+    }
+
+  </script>
+ {% endblock custom_js_header %}
+
+
+{% block content %}
+<section class='text-center container'>
+    <h2>Search Videos in Youtube</h2>
+    <p>search videos and select any video to open in youtube</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input class="btn btn-danger" type="submit" value="Submit">
+    </form><br>
+    <!-- <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY" style="display: inline;" name="youtube_display" id="youtube_display" frameborder="0"></iframe> -->
+
+
+    {% for result in results %}
+    <!-- <b>https://www.youtube.com/embed/{{result.id}}</b> -->
+<br><br>
+<br><br>
+    <div data-custom-attribute="hillllllll" onclick="videodisp(this)" id="link" data-id="{{result.id}}">
+        <div class="card" >
+            <div class="card-header">
+                <div class="row">
+                    <a href="https://www.youtube.com/embed/{{result.id}}" target="_blank"> <div class="col-md-5">
+                        <img class="img-fluid" src="{{result.thumbnail}}" alt="" >
+
+                    </div>
+                </a>
+                    <div class="col-md-7">
+                        <h3 class="p-0 m-0">{{result.title}}</h3>
+                        <b>
+                            <u>
+                                <h5 class="p-0 m-0">{{result.channel}}</h5>
+                            </u>
+                        </b>
+                        <h6 class="p-0 m-1">{{result.description}}</h6>
+                        <b>
+                            <h6 class="ml-0 mt-3">{{result.duration}}</h6>
+                            <h6 class="ml-0 mt-1">{{result.views}}</h6>
+                            <h6 class="ml-0 mt-1">{{result.published}}</h6>
+                        </b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+    <br>
+</section>
+
+{% endblock content %}
+
+
+{% block custom_js %}
+
+
+{% endblock custom_js %}
