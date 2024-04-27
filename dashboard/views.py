@@ -292,41 +292,35 @@ def wiki(request):
         text = request.POST['text']
         print(text)
         form = DashboardForm(request.POST)
-        wiki_list = {}
-        try:
-            print("----------------------------------------------------------------->1")
+        wiki_list = []
+        def add_wiki_list(text):
             search = wikipedia.page(text)
-            wiki_list.update(
+            wiki_list.append(
                     {
-                        text:search.title,
+                        'title':search.title,
                         'link' : search.url,
                         'summary' : search.summary
                     }
-            )
-            print("--------------------wikilist")
-            print(wiki_list)
-            print("----------------------------------------------------------------->2")
+            ) 
+        
+        try:
+            add_wiki_list(text)
         except wikipedia.exceptions.DisambiguationError as e:
-            print('------------------------------------------------------------------>3')
             options = e.options
-            for i in options:
-                print(i)
-                print("-----------------Options")
-                search = wikipedia.page("Python (programming language)")
-                print(dir(search))
-                wiki_list.update(
-                    {
-                        i:search.title,
-                        'link' : search.url,
-                        'summary' : search.summary
-                    }
-                )
-            print('------------------------------------------------------------------>4')
-        print(wiki_list)
-        print('--------------------------------------------------------------->5')
+            count = 0
+            for option in options:
+                try:
+                    add_wiki_list(option)
+                    count += 1
+                    if count == 5:
+                        break
+                except wikipedia.exceptions.PageError as e:
+                    print("Page Error------------------------------------------------------------->")
+        except wikipedia.exceptions.PageError as e:
+            print("Page Error------------------------------------------------------------->")
         context = {
             'form' : form,
-            'data' : wiki_list,
+            'items' : wiki_list,
         }
         return render(request, 'dashboard/wiki.html', context)
     form = DashboardForm()
@@ -439,3 +433,6 @@ def profile(request):
 
 def compile(request):
     return render(request, 'dashboard/compiler1.html')
+
+def resume(request):
+    return render(request, 'dashboard/resume_maker.html')

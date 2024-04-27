@@ -3,20 +3,77 @@
 {% block content %}
 
  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-bs-interval="interval:3000;">
-  <ol class="carousel-indicators">
+  <!-- <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
+  </ol> -->
   <div class="carousel-inner "  style="height:50vh">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="{% static 'images/notes.jpg' %}" alt="First slide">
+      <img class="d-block w-100" src="{% static 'images/notes.jpg' %}" height="400vh" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Notes</h5>
+        <p>Create Notes to refer them later. They are stored permanently until deleted</p>
+      </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{% static 'images/notes.jpg' %}" alt="Second slide">
+      <img class="d-block w-100" src="{% static 'images/books.jpg' %}" height="400vh" alt="Second slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Books</h5>
+        Browse books from a list of neatly organised book menu
+        <p></p>
+      </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{% static 'images/notes.jpg' %}" alt="Third slide">
+      <img class="d-block w-100" src="{% static 'images/youtube.jpg' %}" height="400vh" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Youtube</h5>
+        <p>Search Youtube and select your desired video to play it on youtube</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{% static 'images/homework.jpg' %}" height="400vh" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Homework</h5>
+        <p> Add homeworks and assign them deadlines. They will be displayed.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{% static 'images/todo.jpg' %}" height="400vh" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>To Do</h5>
+        <p>Add your to-do lists for your day and remove them as you finish</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{% static 'images/wiki.jpg' %}" height="400vh" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>WikiPedia</h5>
+        Homework and Assignments? Search wikipedia to get fast results
+        <p></p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{% static 'images/dictionary.jpg' %}" height="400vh" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Dictionary</h5>
+        A vocabulary from a book is troubling you? No problem, enter the word.
+        <p></p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{% static 'images/conversion.jpg' %}" height="400vh" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Conversion</h5>
+        <p>Check out the conversion table, that helps you to convert measurements.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{% static 'images/compiler.jpg' %}" height="400vh" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Compile Your Code</h5>
+        <p>Check out the compiler, that helps you to compile your code.</p>
+      </div>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -167,6 +224,22 @@
     </div>
 
   </div>
+  <br><br>
+  <div class="row text-center justify-content-center gap-3 ">
+    <div class="col-md-4">
+      <a href="{% url 'resume' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/resume.jpeg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title " >
+              Resume Generator
+            </h5>
+            We take data from user and convert it into pdf as resume
+          </div>
+        </div>
+      </a>
+    </div>
+  <div>
  
 
   </div>
@@ -179,5 +252,8 @@
 
 
 {% block custom_js %}
+<script>
+ 
+</script>
 
 {% endblock custom_js %}

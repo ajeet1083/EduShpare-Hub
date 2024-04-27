@@ -25,6 +25,8 @@ urlpatterns =[
     path('wiki', views.wiki, name='wiki'),
     path('conversion', views.conversion, name='conversion'),
     path('compile', views.compile, name='compile'),
+    path('resume', views.resume, name='resume'),
+    
     
     
     

@@ -7,6 +7,12 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+.carousel-caption{
+  color: black;
+  font-weight: 800;
+  font-size: larger;
+}
+
 .footer {
  margin-top: 100px;
   background: #10182F;

@@ -1,0 +1,189 @@
+{% extends 'dashboard/base.html' %} 
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container-form my-5 " id="cv-form">
+    <h1 class="text-center my-4">Resume Generator</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Personal Information</h3>
+            
+            <div class="form-group mt-3">
+                <label for="nameField">Your Name</label>
+                <input type="text" id="nameField" class="form-control" placeholder="enter here">
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="contactField">Your Contact</label>
+                <input type="text" id="contactField" class="form-control" placeholder="enter here">
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="addressField">Your Address</label>
+                <textarea id="addressField" class="form-control" placeholder="enter here" rows="5"></textarea>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="">Select your profile pic</label>
+                <input id="imageField" type="file" class="form-control">
+
+            </div>
+
+           
+
+            <p class="text-secondary mt-3">Importants Link</p>
+            <div class="form-group mt-3">
+                <label for="fbField">Facebook</label>
+                <input type="text" id="fbField" class="form-control" placeholder="enter here">
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="instaField">Instagram</label>
+                <input type="text" id="instaField" class="form-control" placeholder="enter here">
+            </div>
+            <div class="form-group mt-3">
+                <label for="linkedField">Linkdin</label>
+                <input type="text" id="linkedField" class="form-control" placeholder="enter here">
+            </div>
+
+
+        </div>
+        <div class="col-md-6">
+            <h3>Profesional Information</h3>
+
+            <div class="form-group mt-3">
+                <label for="">Objective</label>
+                <textarea id="objectiveField" type="text"  class="form-control" placeholder="enter here">
+                    </textarea>
+            </div>
+
+            <div class="form-group mt-3 " id="we">
+                <label for="">Work Experience</label>
+                <textarea type="text"  class="form-control weField" placeholder="enter here">
+                    </textarea>
+
+                    <div class="container text-center" id="weAddButton">
+                        <button  onclick="addNewWEField()" class="btn btn-primary btn-sm mt-3" >Add</button>
+                    </div>
+            </div>
+
+            <div class="form-group mt-3" id="aq">
+                <label for="">Academic Qualification</label>
+                <textarea type="text"  class="form-control eqField" placeholder="enter here">
+                    </textarea>
+
+                    <div class="container text-center" id="aqAddButton">
+                        <button onclick="addNewAQField()" class="btn btn-primary btn-sm mt-3" >Add</button>
+                    </div>
+            </div>
+
+            <div class="form-group mt-3 " id="sk">
+                <label for="">Skills</label>
+                <input type="text"  class="form-control skField" placeholder="enter here">
+                    
+
+                    <div class="container text-center" id="skAddButton">
+                        <button  onclick="addNewSkField()" class="btn btn-primary btn-sm mt-3" >Add</button>
+                    </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="container text-center mt-3">
+        <button onclick="generateCV()" class="btn btn-primary btn-lg">
+            Generate CV
+        </button>
+    </div>
+</div>
+
+<div class="container-template " id="cv-template">
+    <div class="row">
+        <div class="col-md-4 py-3 text-center background" >
+            <img src="https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png" alt="" 
+            class="img-fluid myimg"
+            id="imageT"
+            >
+            <div class="container mt-3 ">
+                <p id="nameT">Vikas Singh</p>
+                <p id="contactT">+91 6392247091</p>
+                <p id="addressT">Chakeri kanpur 208008</p>
+                <hr/>
+
+                <p>
+                    <a id="fbT" href="#">http://instgrarm//.com</a>
+                </p>
+                <p>
+                    <a id="instaT" href="#">http://instgrarm//.com</a>
+                </p>
+                <p>
+                    <a id="linkedT" href="#">http://instgrarm//.com</a>
+                </p>
+            </div>
+        </div>
+        <div class="col-md-8 py-3">
+            <h1 id="nameT2" class="text-center " style="font-weight: 900 ;background-color:gray; color: white;font-size: 60px; ">Vikas Singh</h1>
+
+            <div class="card mt-3">
+                <div class="card-header background">
+                    <h3>Objective</h3>
+                </div>
+                <div class="card-body">
+                    <p id="objectiveT">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ad, eius beatae quis reprehenderit labore?</p>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header background">
+                    <h3>Work Experience</h3>
+                </div>
+                <div class="card-body">
+                    <ul id="weT">
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, explicabo?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, error!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. .</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="card mt-3">
+                <div class="card-header background">
+                    <h3>Academic Qualification</h3>
+                </div>
+                <div class="card-body">
+                    <ul id="aqT">
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, explicabo?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, error!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. .</li>
+                    </ul>
+                </div>
+            </div>
+
+            
+            <div class="card mt-3">
+                <div class="card-header background">
+                    <h3>Skills</h3>
+                </div>
+                <div class="card-body">
+                    <ul id="skT">
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, explicabo?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, error!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. .</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container mt-3 text-center">
+                <button onclick="printCV()" class="background">
+                    Print CV
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

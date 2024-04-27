@@ -1,3 +1,4 @@
+{% load static %}
 @import url("https://fonts.googleapis.com/css?family=Acme|Lobster|Patua+One|Rubik|Sniglet|Quicksand|Barlow");
 
 html {
@@ -11,6 +12,10 @@ html {
 
 main {
     font-family: Barlow, Quicksand, Rubik, sans-serif, serif, 'Times New Roman', Times, serif !important;
+    background-image: url({% static 'images/giphy.gif' %});
+    background-size: cover;
+    background-position: center;
+    /* height: 100%; Ensure the main element fills the viewport height */
 
 }
 

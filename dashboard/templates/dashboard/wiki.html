@@ -13,10 +13,11 @@
     </form><br>
 
     <div class="container">
+        {% for data in items %}
         <div class="content-section p-0 mt-5">
-            <a href="{{link}}" class="p-0 m-0" target="_blank">
+            <a href="{{data.link}}" class="p-0 m-0" target="_blank">
                 <div class="custom-header">
-                    <h2>{{title}}</h2>
+                    <h2>{{data.title}}</h2>
                     <h3><ul style="color: red;">Click For Details</ul></h3>
                     
                 </div>
@@ -25,10 +26,16 @@
 
             <hr class="p-0 m-0">
             <p class="description m-1 p-2">
-                {{summary}}
+                {{data.summary}}
             </p>
             <hr>
         </div>
+        {% empty %}
+        <div class="custom-header">
+            <h3><ul style="color: red;">Sorry I don't find Try with Different Key</ul></h3>
+            
+        </div>
+        {% endfor %}
     </div>
 
 </section>
