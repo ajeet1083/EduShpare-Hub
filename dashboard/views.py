@@ -436,3 +436,6 @@ def compile(request):
 
 def resume(request):
     return render(request, 'dashboard/resume_maker.html')
+
+def image_download(request):
+    return render(request, 'dashboard/image_download.html')

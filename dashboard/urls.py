@@ -26,7 +26,7 @@ urlpatterns =[
     path('conversion', views.conversion, name='conversion'),
     path('compile', views.compile, name='compile'),
     path('resume', views.resume, name='resume'),
-    
+    path('image_download', views.image_download, name='image_download'),
     
     
     

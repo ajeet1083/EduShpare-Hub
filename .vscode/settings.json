@@ -1,0 +1,31 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "MySQL",
+            "database": "test",
+            "username": "root",
+            "password": "admin"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "Sqlite",
+            "database": "sqlite_test"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "EduSphareHub",
+            "database": "${workspaceFolder:EduShpare-Hub}/db.sqlite3"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

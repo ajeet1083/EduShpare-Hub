@@ -1,6 +1,12 @@
 {% extends 'dashboard/base.html' %} 
 {% load static %}
 {% load crispy_forms_tags %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+{% endblock custom_css %}
+
 {% block content %}
 
 <div class="container-form my-5 " id="cv-form">
@@ -177,7 +183,7 @@
                 </div>
             </div>
 
-            <div class="container mt-3 text-center">
+            <div class="container mt-3 text-center printcv">
                 <button onclick="printCV()" class="background">
                     Print CV
                 </button>
@@ -187,3 +193,7 @@
 </div>
 
 {% endblock content %}
+
+{% block custom_js %}
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock custom_js %}
